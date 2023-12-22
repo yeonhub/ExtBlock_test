@@ -1,35 +1,48 @@
-import React, { useState } from 'react';
-import { ExtBlockCustomData } from '../../assets/api/ExtBlockCustomData';
-import { ExtBlockFixedData } from '../../assets/api/ExtBlockFixedData';
+import React, { useEffect, useState } from 'react';
 import '../../assets/css/ExtBlockCss/ExtBlockCustomScss.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getExtBlockCustom } from '../../store/modules/ExtBlockSlice';
 
 const ExtBlockCustom = () => {
+    const ExtBlockCustomData = useSelector(state => state.ExtBlockReducer.ExtBlockCustom);
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getExtBlockCustom())
+    }, [])
+
     const [inputValue, setInputValue] = useState('');
-    const [customData, setCustomData] = useState(ExtBlockCustomData);
+    const [customData, setCustomData] = useState([]);
+    useEffect(() => {
+        setCustomData(ExtBlockCustomData);
+    }, [ExtBlockCustomData])
+
     const [errorMessage, setErrorMessage] = useState('');
     const isInputEmpty = inputValue.trim() === '';
-
     const handleInputChange = (event) => {
-        const value = event.target.value.slice(0, 20); // 최대 20자로 제한
+        const value = event.target.value;
+    
         if (/^[a-zA-Z]*$/.test(value) || value === '') {
-            setInputValue(value);
-            setErrorMessage(value.length > 20 ? '⚠️ 20자 이내만 입력 가능합니다.' : '');
+            if (value.length <= 20) {
+                setInputValue(value);
+                setErrorMessage('');
+            } else {
+                setErrorMessage('⚠️ 20자 이내만 입력 가능합니다.');
+            }
         } else {
             setErrorMessage('⚠️ 영어로만 입력해주세요.');
         }
     };
+    
 
     const handleAddButtonClick = () => {
-        if (/^[a-zA-Z]*$/.test(inputValue) && !isInputEmpty) {
-            if (customData.includes(inputValue) || ExtBlockFixedData.includes(inputValue)) {
-                setErrorMessage('⚠️ 이미 등록된 확장자입니다.');
-            } else {
-                setCustomData([...customData, inputValue]);
-                setInputValue('');
-                setErrorMessage('');
-            }
+        if (customData.includes(inputValue) || ExtBlockFixedData.includes(inputValue)) {
+            setErrorMessage('⚠️ 이미 등록된 확장자입니다.');
         } else {
-            setErrorMessage('⚠️ 영어로만 입력해주세요.');
+            setCustomData([...customData, inputValue]);
+            setInputValue('');
+            setErrorMessage('');
         }
     };
 
@@ -55,7 +68,6 @@ const ExtBlockCustom = () => {
                 value={inputValue}
                 onChange={handleInputChange}
                 onKeyPress={handleEnterKeyPress}
-                maxLength={20}
                 placeholder="확장자 입력"
             />
             <button
@@ -65,12 +77,12 @@ const ExtBlockCustom = () => {
             >
                 +추가
             </button>
-            {errorMessage && <p style={{height : '2dvh', color: 'red', margin: '2dvh', fontWeight: '600' }}>{errorMessage}</p>}
+            {errorMessage && <p style={{ height: '2dvh', color: 'red', margin: '2dvh', fontWeight: '600' }}>{errorMessage}</p>}
             {!errorMessage && <div style={{ height: '6dvh' }}></div>}
             <ul className='customUl'>
                 {customData.map((item, index) => (
-                    <li className='customLi' key={index}>
-                        {item}
+                    <li className='customLi' key={item.id}>
+                        {item.extension}
                         <button className='customDelBtn' onClick={() => handleDeleteButtonClick(index)}>
                             X
                         </button>

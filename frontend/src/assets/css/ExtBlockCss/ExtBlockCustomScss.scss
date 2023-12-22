@@ -5,6 +5,7 @@
     .customTitle {
         font-size: 1.3dvw;
         margin-right: 1dvw;
+        font-weight: 600;
     }
 
     .addCustom {
@@ -12,7 +13,8 @@
         width: 20dvw;
         margin-right: 1dvw;
     }
-    .addCustomBtn{
+
+    .addCustomBtn {
         font-size: 1.3dvw;
         width: 6dvw;
     }
@@ -37,7 +39,7 @@
             vertical-align: middle;
 
             .customDelBtn {
-                margin-left:  0.5dvw;
+                margin-left: 0.5dvw;
             }
         }
     }
