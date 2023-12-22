@@ -1,14 +1,15 @@
 import React from 'react';
-import ExtBlockContainer from './components/extensionBlock/ExtBlockContainer';
-import ExtBlockTitle from './components/extensionBlock/ExtBlockTitle';
-import ExtBlockFixed from './components/extensionBlock/ExtBlockFixed';
-import ExtBlockCustom from './components/extensionBlock/ExtBlockCustom';
+import './assets/css/reset.css'
+import ExtBlockContainer from './components/ExtBlock/ExtBlockContainer';
+import ExtBlockTitleUI from './components/ExtBlock/ExtBlockTitleUI';
+import ExtBlockFixed from './components/ExtBlock/ExtBlockFixed';
+import ExtBlockCustom from './components/ExtBlock/ExtBlockCustom';
 
 const App = () => {
   return (
     <>
       <ExtBlockContainer>
-        <ExtBlockTitle />
+        <ExtBlockTitleUI />
         <ExtBlockFixed />
         <ExtBlockCustom />
       </ExtBlockContainer>

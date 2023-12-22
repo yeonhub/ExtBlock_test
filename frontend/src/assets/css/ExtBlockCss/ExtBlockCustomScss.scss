@@ -1,0 +1,46 @@
+.ExtBlockCustom {
+    margin: 1.5dvw;
+    margin-top: 2dvw;
+
+    .customTitle {
+        font-size: 1.3dvw;
+        margin-right: 1dvw;
+    }
+
+    .addCustom {
+        font-size: 1.3dvw;
+        width: 20dvw;
+        margin-right: 1dvw;
+    }
+    .addCustomBtn{
+        font-size: 1.3dvw;
+        width: 6dvw;
+    }
+
+    .customUl {
+        border-radius: 0.5dvw;
+        border: 0.1dvw black solid;
+        height: 34dvh;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: baseline;
+        overflow-y: auto;
+
+        .customLi {
+            width: auto;
+            height: 2dvh;
+            font-size: 1dvw;
+            margin: 0.5dvw;
+            padding: 0.5dvw;
+            background-color: lightgray;
+            border-radius: 0.3dvw;
+            vertical-align: middle;
+
+            .customDelBtn {
+                margin-left:  0.5dvw;
+            }
+        }
+    }
+
+
+}

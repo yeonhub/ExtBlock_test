@@ -1,0 +1,21 @@
+.ExtBlockFixed {
+    margin: 1.5dvw;
+    border-bottom: 0.15dvw gray solid;
+
+    .fixedTitle {
+        font-size: 1.3dvw;
+    }
+
+    .fixedUl {
+        margin-top: 1.5dvw;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1dvw;
+
+        .fixedLi {
+            user-select: none;
+            font-size: 1.5dvw;
+            margin: 0 1vw;
+        }
+    }
+}

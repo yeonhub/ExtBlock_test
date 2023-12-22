@@ -1,11 +1,13 @@
 import React from 'react';
+import '../../assets/css/ExtBlockCss/ExtBlockContainerScss.scss'
 
-const ExtBlockContainer = () => {
+const ExtBlockContainer = (props) => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <div className='ExtBlockContainer'>
+                {props.children}
+            </div>
+        </>
     );
 };
-
 export default ExtBlockContainer;
