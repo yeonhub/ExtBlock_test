@@ -8,7 +8,7 @@ const initialState = {
 export const getExtBlockFixed = createAsyncThunk(
     'ExtBlock/getExtBlockFixed',
     async () => {
-        const res = await axios.get(`http://localhost:3000/ExtBlock/ExtBlockFixed`)
+        const res = await axios.get(`http://3.34.141.196:3000/ExtBlock/ExtBlockFixed`)
         return res.data
     }
 )
@@ -16,7 +16,7 @@ export const getExtBlockFixed = createAsyncThunk(
 export const getExtBlockCustom = createAsyncThunk(
     'ExtBlock/getExtBlockCustom',
     async () => {
-        const res = await axios.get(`http://localhost:3000/ExtBlock/ExtBlockCustom`)
+        const res = await axios.get(`http://3.34.141.196:3000/ExtBlock/ExtBlockCustom`)
         return res.data
     }
 )
@@ -25,7 +25,7 @@ export const putExtBlockFixedChk = createAsyncThunk(
     'ExtBlock/putExtBlockFixedChk',
     async (obj) => {
         const id = obj.id
-        const res = await axios.put(`http://localhost:3000/ExtBlock/ExtBlockFixed/${id}`, obj)
+        const res = await axios.put(`http://3.34.141.196:3000/ExtBlock/ExtBlockFixed/${id}`, obj)
         return obj;
     }
 )
@@ -33,7 +33,7 @@ export const addExtBlockCustom = createAsyncThunk(
     'ExtBlock/addExtBlockCustom',
     async (extension) => {
         const newCustom = extension.inputValue
-        const res = await axios.post(`http://localhost:3000/ExtBlock/ExtBlockCustom/${newCustom}`);
+        const res = await axios.post(`http://3.34.141.196:3000/ExtBlock/ExtBlockCustom/${newCustom}`);
         return extension;
     }
 )
@@ -41,7 +41,7 @@ export const delExtBlockCustom = createAsyncThunk(
     'ExtBlock/delExtBlockCustom',
     async (id) => {
         console.log(id);
-        const res = await axios.delete(`http://localhost:3000/ExtBlock/ExtBlockCustom/${id}`, id)
+        const res = await axios.delete(`http://3.34.141.196:3000/ExtBlock/ExtBlockCustom/${id}`, id)
         return id;
     }
 )
