@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getExtBlockFixed } from '../../../store/modules/ExtBlockSlice';
-import ExtBlockFixedUl from './ExtBlockFixedUl';
+import ExtBlockFixedUl from './ExtBlockFixedUL';
 
 const ExtBlockFixed = () => {
     const ExtBlockFixedData = useSelector(state => state.ExtBlockReducer.ExtBlockFixed);
