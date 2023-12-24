@@ -1,5 +1,6 @@
 .ExtBlockTitle {
     .title {
+        position: relative;
         background-color: lightgray;
         box-sizing: border-box;
         font-weight: 600;
@@ -7,6 +8,22 @@
         padding: 1.5dvw;
         font-size: 2dvw;
         border-bottom: 0.2dvw gray solid;
+        .titleSpan{
+            position: absolute;
+            font-size: 1.1dvw;
+            right: 3dvw;
+            top: 50%;
+            transform:translateY(-50%);
+            background-color: gray;
+            padding: 0.8dvw;
+            border-radius: 10%;
+            cursor: pointer;
+            user-select: none;
+        }
+        .titleSpan:hover{
+            background-color: tan;
+        }
+
     }
 
     .subtitle {

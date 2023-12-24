@@ -6,6 +6,7 @@ import ExtBlockFixed from './components/ExtBlock/ExtBlockFixed/ExtBlockFixed';
 import ExtBlockCustom from './components/ExtBlock/ExtBlockCustom/ExtBlockCustom';
 import { store } from './store'
 import { Provider } from 'react-redux'
+import ExtBlockTitlePopup from './components/ExtBlock/ExtBlockTitlePopup';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Provider store={store}>
         <ExtBlockContainer>
           <ExtBlockTitleUI />
+          <ExtBlockTitlePopup/>
           <ExtBlockFixed />
           <ExtBlockCustom />
         </ExtBlockContainer>

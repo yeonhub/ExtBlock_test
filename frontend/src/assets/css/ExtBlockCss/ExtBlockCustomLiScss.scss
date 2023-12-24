@@ -1,6 +1,6 @@
         .customLi {
             width: auto;
-            height: 2dvh;
+            height: 2.5dvh;
             font-size: 1dvw;
             margin: 0.5dvw;
             padding: 0.5dvw;
@@ -10,5 +10,10 @@
 
             .customDelBtn {
                 margin-left: 0.5dvw;
+            }
+
+            .customDelBtn:hover {
+                background-color: lightcoral;
+
             }
         }

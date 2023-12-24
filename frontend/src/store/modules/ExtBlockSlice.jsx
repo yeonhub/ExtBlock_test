@@ -3,7 +3,8 @@ import axios from 'axios'
 
 const initialState = {
     ExtBlockFixed: [],
-    ExtBlockCustom: []
+    ExtBlockCustom: [],
+    isPopup : false
 }
 export const getExtBlockFixed = createAsyncThunk(
     'ExtBlock/getExtBlockFixed',
@@ -44,10 +45,20 @@ export const delExtBlockCustom = createAsyncThunk(
         return id;
     }
 )
+export const togglePopup = () => {
+    return {
+        type: 'ExtBlock/togglePopup',
+    }
+}
 
 export const ExtBlockFixedSlice = createSlice({
     name: 'ExtBlock',
     initialState,
+    reducers: {
+        togglePopup: (state) => {
+            state.isPopup = !state.isPopup; 
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getExtBlockFixed.fulfilled, (state, action) => {
