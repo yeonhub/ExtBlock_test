@@ -4,7 +4,8 @@ import axios from 'axios'
 const initialState = {
     ExtBlockFixed: [],
     ExtBlockCustom: [],
-    isPopup : false
+    ExtBlockCustomTemp: [],
+    isPopup: false
 }
 export const getExtBlockFixed = createAsyncThunk(
     'ExtBlock/getExtBlockFixed',
@@ -51,12 +52,21 @@ export const togglePopup = () => {
     }
 }
 
+// export const reExtBlockCustom = createAsyncThunk(
+//     'ExtBlock/reExtBlockCustom',
+//     async (_, { getState }) => {
+//         const res = await axios.post();
+//         const { ExtBlockCustomTemp } = getState().ExtBlock;
+//         return ExtBlockCustomTemp
+//     }
+// )
+
 export const ExtBlockFixedSlice = createSlice({
     name: 'ExtBlock',
     initialState,
     reducers: {
         togglePopup: (state) => {
-            state.isPopup = !state.isPopup; 
+            state.isPopup = !state.isPopup;
         },
     },
     extraReducers: (builder) => {
@@ -88,9 +98,19 @@ export const ExtBlockFixedSlice = createSlice({
                 state.ExtBlockCustom.push(newCustom);
             })
             .addCase(delExtBlockCustom.fulfilled, (state, action) => {
-                const { id } = action.payload;
+                const id = action.payload;
+                state.ExtBlockCustomTemp = state.ExtBlockCustom.filter(item => item.id === id);
                 state.ExtBlockCustom = state.ExtBlockCustom.filter(item => item.id !== id);
             })
+            // .addCase(reExtBlockCustom.fulfilled, (state, action) => {
+            //     if (state.ExtBlockCustomTemp) {
+            //         state.ExtBlockCustom = [...state.ExtBlockCustom, ...state.ExtBlockCustomTemp];
+            //         state.ExtBlockCustom.sort((a, b) => {
+            //             return a.id - b.id;
+            //         });
+            //         state.ExtBlockCustomTemp = [];
+            //     }
+            // });
     }
 })
 

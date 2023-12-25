@@ -7,8 +7,10 @@
     width: 40dvw;
     height: 60dvh;
     border: 0.2dvw black solid;
+    box-sizing: border-box;
     border-radius: 1%;
     .popupTitle{
+        height: 3dvh;
         position: relative;
         background-color: lightgray;
         text-align: center;
@@ -27,9 +29,12 @@
         }
     }
     .popupUl{
+        width: 38dvw;
+        height: 48dvh;
         display: flex;
         margin: 1dvw;
         flex-wrap: wrap;
+        overflow-y: scroll;
         .popupLi {
             font-size: 1.5dvw;
             margin: 1dvw;

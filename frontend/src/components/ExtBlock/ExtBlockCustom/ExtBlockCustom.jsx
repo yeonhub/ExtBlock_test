@@ -25,10 +25,10 @@ const ExtBlockCustom = () => {
     useEffect(() => {
         setCustomData(ExtBlockCustomData);
     }, [ExtBlockCustomData]);
-    
+
     useEffect(() => {
         setCustomCount(customData.length);
-    }, [customData]); 
+    }, [customData]);
 
 
     useEffect(() => {
@@ -40,6 +40,9 @@ const ExtBlockCustom = () => {
             dispatch(getExtBlockCustom());
         });
     }
+    // const handleRecallButtonClick = () => {
+    //     dispatch(reExtBlockCustom())
+    // }
     return (
         <div className='ExtBlockCustom'>
             <span className='customTitle'>

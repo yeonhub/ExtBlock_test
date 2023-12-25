@@ -12,6 +12,9 @@ const ExtBlockCustomInputUI = ({ inputValue, handleInputChange, handleEnterKeyPr
                 onKeyPress={handleEnterKeyPress}
                 placeholder="확장자 입력"
             />
+            <span className='addCustomCount'>
+               {inputValue.length} / 20
+            </span>
             <button
                 className='addCustomBtn'
                 onClick={handleAddButtonClick}
