@@ -28,9 +28,23 @@
             background-color: lightcoral;
         }
     }
+    .copyButton{
+        font-size: 1.2dvw;
+        width: 8dvw;
+        padding: 0.6dvw;
+        margin-top: 0.6dvw;
+        margin-left: 0.6dvw;
+        background-color: gray;
+        font-weight: 600;
+        border: none;
+        border-radius: 0.6dvw;
+    }
+    .copyButton:hover{
+        background-color: tan;
+    }
     .popupUl{
         width: 38dvw;
-        height: 48dvh;
+        height: 46dvh;
         display: flex;
         margin: 1dvw;
         flex-wrap: wrap;

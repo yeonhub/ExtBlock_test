@@ -20,9 +20,9 @@ const ExtBlockCustomInputUI = ({ inputValue, handleInputChange, handleEnterKeyPr
                 onClick={handleAddButtonClick}
                 disabled={isInputEmpty}
             >
-                +추가
+              + 추가
             </button>
-            {errorMessage && <p style={{ height: '2dvh', color: 'red', margin: '2dvh', fontWeight: '600' }}>{errorMessage}</p>}
+            {errorMessage && <p style={{ height: '2dvh', color: 'red', margin: '2dvh', fontWeight: '600', fontSize:'1.2dvw' }}>{errorMessage}</p>}
             {!errorMessage && <div style={{ height: '6dvh' }}></div>}
         </>
     );

@@ -8,7 +8,6 @@ const initialState = {
     ExtBlockCustomTemp: [],
     isPopup: false
 }
-
 // 고정 확장자 API
 export const getExtBlockFixed = createAsyncThunk(
     'ExtBlock/getExtBlockFixed',

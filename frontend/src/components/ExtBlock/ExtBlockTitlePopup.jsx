@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import '../../assets/css/ExtBlockCss/ExtBlockPopupScss.scss'
 import { useTogglePopup } from '../../hooks/useTogglePopup';
 import { RenderFixedData } from './ExtBlockCurrent/RenderFixedLi';
@@ -8,6 +8,15 @@ import { useExtBlockData } from '../../hooks/useExtBlockData';
 const ExtBlockTitlePopup = () => {
     const isPopupBtn = useTogglePopup();
     const { isPopup, ExtBlockCustomData, ExtBlockFixedData } = useExtBlockData();
+
+    const ulRef = useRef(null);
+
+    const handleCopyClick = () => {
+        const listItems = ulRef.current.querySelectorAll('li');
+        const textToCopy = Array.from(listItems).map(li => li.textContent).join('\n');
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => alert('복사 완료!'))
+    };
 
     return (
         <>
@@ -21,7 +30,8 @@ const ExtBlockTitlePopup = () => {
                                 X
                             </button>
                         </h3>
-                        <ul className='popupUl'>
+                        <button className='copyButton' onClick={handleCopyClick}>모두 복사</button>
+                        <ul className='popupUl' ref={ulRef}>
                             <RenderFixedData data={ExtBlockFixedData} />
                             <RenderCustomData data={ExtBlockCustomData} />
                         </ul>

@@ -47,7 +47,7 @@ const ExtBlockCustomInput = ({ customData, fixedData, customCount }) => {
             let id = customCount + 1
             dispatch(addExtBlockCustom({ inputValue, id }))
             setInputValue('');
-            setErrorMessage('');
+            setErrorMessage(`💬 ` + inputValue + ` 등록 완료`);
         }
     };
 
