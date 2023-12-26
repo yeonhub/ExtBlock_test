@@ -15,7 +15,7 @@ const App = () => {
       <Provider store={store}>
         <ExtBlockContainer>
           <ExtBlockTitleUI />
-          <ExtBlockTitlePopup/>
+          <ExtBlockTitlePopup />
           <ExtBlockFixed />
           <ExtBlockCustom />
         </ExtBlockContainer>

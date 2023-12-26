@@ -11,7 +11,6 @@ const ExtBlockFixed = () => {
         dispatch(getExtBlockFixed())
     }, [])
 
-
     return (
         <ExtBlockFixedUl
             ExtBlockFixedData={ExtBlockFixedData}

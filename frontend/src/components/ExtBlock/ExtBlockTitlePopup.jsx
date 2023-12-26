@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import '../../assets/css/ExtBlockCss/ExtBlockPopupScss.scss'
+import { useTogglePopup } from '../../hooks/useTogglePopup';
+import { RenderFixedData } from './ExtBlockCurrent/RenderFixedLi';
+import { RenderCustomData } from './ExtBlockCurrent/RenderCustomLi';
+import { useExtBlockData } from '../../hooks/useExtBlockData';
 
 const ExtBlockTitlePopup = () => {
-    const isPopup = useSelector(state => state.ExtBlockReducer.isPopup)
-    const ExtBlockCustomData = useSelector(state => state.ExtBlockReducer.ExtBlockCustom);
-    const ExtBlockFixedData = useSelector(state => state.ExtBlockReducer.ExtBlockFixed);
-
-    const dispatch = useDispatch();
-
-    const isPopupBtn = () => {
-        dispatch({ type: 'ExtBlock/togglePopup' });
-    }
+    const isPopupBtn = useTogglePopup();
+    const { isPopup, ExtBlockCustomData, ExtBlockFixedData } = useExtBlockData();
 
     return (
         <>
@@ -26,20 +22,8 @@ const ExtBlockTitlePopup = () => {
                             </button>
                         </h3>
                         <ul className='popupUl'>
-                            {
-                                ExtBlockFixedData.filter(ele => ele.isChecked).map((ele) => (
-                                    <li className='popupLi' key={ele.id}>
-                                        {ele.extension}
-                                    </li>
-                                ))
-                            }
-                            {
-                                ExtBlockCustomData.map((ele) => (
-                                    <li className='popupLi' key={ele.id}>
-                                        {ele.extension}
-                                    </li>
-                                ))
-                            }
+                            <RenderFixedData data={ExtBlockFixedData} />
+                            <RenderCustomData data={ExtBlockCustomData} />
                         </ul>
                     </div>
                     :

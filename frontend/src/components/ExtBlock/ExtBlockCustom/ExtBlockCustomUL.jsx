@@ -5,25 +5,16 @@ import ExtBlockCustomSearch from './ExtBlockCustomSearch';
 
 const ExtBlockCustomUL = ({ customData, customCount, handleDeleteButtonClick }) => {
     const [searchText, setSearchText] = useState('');
-
     const handleSearch = (text) => {
         setSearchText(text);
     };
+
     return (
         <ul className='customUl'>
             <div className='customInfo'>
                 <span className='customCount'>
                     [ {customCount} / 200 ]
                 </span>
-                {/* <em className='coustomButton'>
-                <button className='delAllCustom'>
-                    모두 삭제
-                </button>
-                <button className='recallAllCustom' onClick={handleRecallButtonClick}>
-                    되돌리기
-                </button>
-                
-                </em> */}
                 <ExtBlockCustomSearch onSearch={handleSearch} />
             </div>
             {customData.map((item, index) => (

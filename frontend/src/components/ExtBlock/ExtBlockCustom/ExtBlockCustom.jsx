@@ -13,43 +13,25 @@ const ExtBlockCustom = () => {
 
     useEffect(() => {
         dispatch(getExtBlockCustom());
-    }, []);
-
-    useEffect(() => {
         dispatch(getExtBlockFixed());
     }, []);
 
-    const [customData, setCustomData] = useState([]);
-    const [fixedData, setFixedData] = useState([]);
-
     useEffect(() => {
-        setCustomData(ExtBlockCustomData);
+        setCustomCount(ExtBlockCustomData.length);
     }, [ExtBlockCustomData]);
-
-    useEffect(() => {
-        setCustomCount(customData.length);
-    }, [customData]);
-
-
-    useEffect(() => {
-        setFixedData(ExtBlockFixedData);
-    }, [ExtBlockFixedData]);
 
     const handleDeleteButtonClick = (id) => {
         dispatch(delExtBlockCustom(id)).then(() => {
             dispatch(getExtBlockCustom());
         });
     }
-    // const handleRecallButtonClick = () => {
-    //     dispatch(reExtBlockCustom())
-    // }
     return (
         <div className='ExtBlockCustom'>
             <span className='customTitle'>
                 🛠️ 커스텀 확장자
             </span>
-            <ExtBlockCustomInput setCustomData={setCustomData} fixedData={fixedData} customData={customData} customCount={customCount} />
-            <ExtBlockCustomUL customData={customData} customCount={customCount} handleDeleteButtonClick={handleDeleteButtonClick} />
+            <ExtBlockCustomInput fixedData={ExtBlockFixedData} customData={ExtBlockCustomData} customCount={customCount} />
+            <ExtBlockCustomUL customData={ExtBlockCustomData} customCount={customCount} handleDeleteButtonClick={handleDeleteButtonClick} />
         </div>
     );
 };
